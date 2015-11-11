@@ -1,0 +1,43 @@
+{
+	"ImportPath": "github.com/smalleats/prototype-imageproxy",
+	"GoVersion": "go1.5.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/disintegration/imaging",
+			"Rev": "546cb3c5137b3f1232e123a26aa033aade6b3066"
+		},
+		{
+			"ImportPath": "github.com/golang/glog",
+			"Rev": "fca8c8854093a154ff1eb580aae10276ad6b1b5f"
+		},
+		{
+			"ImportPath": "github.com/gregjones/httpcache",
+			"Rev": "ae1d6feaf2d3354cece07d7dcf420de6745ad7b6"
+		},
+		{
+			"ImportPath": "github.com/petar/GoLLRB/llrb",
+			"Rev": "53be0d36a84c2a886ca057d34b6aa4468df9ccb4"
+		},
+		{
+			"ImportPath": "github.com/peterbourgon/diskv",
+			"Rev": "f726c97c7c2b7f636e5b5c424cafa98e713c437b"
+		},
+		{
+			"ImportPath": "golang.org/x/image/bmp",
+			"Rev": "baddd3465a05d84a6d8d3507547a91cb188c81ea"
+		},
+		{
+			"ImportPath": "golang.org/x/image/tiff",
+			"Rev": "baddd3465a05d84a6d8d3507547a91cb188c81ea"
+		},
+		{
+			"ImportPath": "willnorris.com/go/gifresize",
+			"Rev": "9ea3f344c54d0eaa7e9494e3a00bec96676c9bab"
+		},
+		{
+			"ImportPath": "willnorris.com/go/imageproxy",
+			"Comment": "v0.4.0-13-g5f5df0c",
+			"Rev": "5f5df0c86018fc809b845597343479e551b3a910"
+		}
+	]
+}
