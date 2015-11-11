@@ -45,7 +45,8 @@ func main() {
 
 	fmt.Printf("imageproxy listening on " + port)
 	err := server.ListenAndServe()
+
 	if err != nil {
-		log.Fatal("ListenAndServe: ", port)
+		log.Fatal(err.Error())
 	}
 }
