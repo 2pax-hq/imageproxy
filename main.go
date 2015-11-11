@@ -8,31 +8,19 @@ import (
 	"os"
 	"strings"
 
-	"github.com/gregjones/httpcache"
-	"github.com/gregjones/httpcache/diskcache"
-	"github.com/peterbourgon/diskv"
-
 	"willnorris.com/go/imageproxy"
 )
 
 func main() {
 
 	// Set server address
-	addr := os.Getenv("ADDRESS")
-	if addr == "" {
-		log.Fatal("No address provided for the imageproxy")
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("No port provided for the imageproxy")
 	}
 
-	// Set cache
-	var cache httpcache.Cache
-	d := diskv.New(diskv.Options{
-		BasePath:     "/tmp/imageproxy",
-		CacheSizeMax: 500 * 1024 * 1024,
-	})
-	cache = diskcache.NewWithDiskv(d)
-
 	// Create proxy
-	p := imageproxy.NewProxy(nil, cache)
+	p := imageproxy.NewProxy(nil, nil)
 
 	// Create whitelist
 	if os.Getenv("WHITELIST") != "" {
@@ -51,13 +39,13 @@ func main() {
 	p.ScaleUp = true
 
 	server := &http.Server{
-		Addr:    addr,
+		Addr:    port,
 		Handler: p,
 	}
 
-	fmt.Printf("imageproxy listening on " + addr)
+	fmt.Printf("imageproxy listening on " + port)
 	err := server.ListenAndServe()
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		log.Fatal("ListenAndServe: ", port)
 	}
 }
