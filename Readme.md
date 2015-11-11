@@ -1,13 +1,17 @@
-## Prototype Imageproxy
+## Imageproxy
 
-This is a small repo that holds the packages and Procfile for deploying the imageproxy on Heroku.
+This is a repository to host the [imageproxy](https://github.com/willnorris/imageproxy) on Heroku. The setup of this is based on the [prototype-imageproxy](https://github.com/oreillymedia/prototype-imageproxy) but introduces a few changes. Since Go 1.5 it's no longer possible to import a program. This doesn't play well with Heroku since it needs all dependencies in the repo.
 
-To update the packages:
+### Usage
 
-- `godep save`
-- `git add .; git commit -m 'updated dependencies'`
-- `git push heroku master`
+```shell
+godep save
+git add .; git commit -m 'updated dependencies'
+```
 
-### Heroku deploy
+### Deployment
+Depending on your git origin setup you'll have to adjust the origin name before pushing the changes to Heroku.
 
-This repo now holds configuration to deploy the imageproxy to Elastic Beanstalk. To see the old Heroku deploy config, see the `heroku` branch.
+```shell
+git push heroku master
+```
