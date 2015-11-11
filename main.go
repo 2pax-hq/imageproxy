@@ -44,5 +44,5 @@ func main() {
 		negroni.Wrap(p),
 	)
 
-	n.Run(port)
+	n.Run(":" + port)
 }
