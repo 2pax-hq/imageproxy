@@ -1,12 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"net/http"
 	"net/url"
 	"os"
 	"strings"
+
+	"github.com/codegangsta/negroni"
 
 	"willnorris.com/go/imageproxy"
 )
@@ -38,15 +38,11 @@ func main() {
 
 	p.ScaleUp = true
 
-	server := &http.Server{
-		Addr:    port,
-		Handler: p,
-	}
+	n := negroni.New(
+		negroni.NewRecovery(),
+		negroni.NewLogger(),
+		negroni.Wrap(p),
+	)
 
-	fmt.Printf("imageproxy listening on " + port)
-	err := server.ListenAndServe()
-
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	n.Run(port)
 }
